@@ -13,8 +13,9 @@ const PORT = process.env.PORT || 5001
 app.use(express.json({ limit: '50mb' }))
 app.use(express.urlencoded({ extended: true, limit: '50mb' }))
 app.use(cookieParser())
+const allowOrigin = ["http://localhost:5173", "https://chatbat-five.vercel.app"]
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: allowOrigin,
     credentials: true
 }
 ))
