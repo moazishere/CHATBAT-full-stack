@@ -11,17 +11,15 @@ import {useThemeStore} from './store/useThemeStore'
 import { Loader } from 'lucide-react'
 import { Toaster } from 'react-hot-toast'
 const App = () => {
-
+  const url = import.meta.env.VITE_BASE_URL
   const { authUser, checkAuth, isCheckingAuth, onlineUsers } = useAuthStore()
   const { theme } = useThemeStore()
 
-  console.log({ onlineUsers })
-
+  
   useEffect(() => {
     checkAuth()
   }, [checkAuth])
 
-console.log(authUser);
 
   if (isCheckingAuth && !authUser) return (
     <div className='flex items-center justify-center h-screen'>
