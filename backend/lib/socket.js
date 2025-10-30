@@ -7,15 +7,18 @@ const server = http.createServer(app)
 
 const io = new Server(server, {
     cors: {
-        origin: ["http://localhost:5173"]
-    }
-})
+      origin: [
+        "http://localhost:5173",
+        "https://chatbat-wheat.vercel.app",
+      ],
+      credentials: true,
+    },
+  });
 
 export function getReceiverSocketId (userId) {
     return userSocketMap[userId]
 }
 
-// اذا سكرت ليش ماعم يسكر ؟
 
 // used to store online users
 const userSocketMap = {} // {userId: socketId}
